@@ -1,0 +1,84 @@
+package com.hyosung.algo;
+
+import java.util.Scanner;
+
+public class pro_sort02 {
+
+    static int[] buff;
+
+    static void swap(int[]a, int x, int y) {
+        int temp = a[x];
+        a[x] = a[y];
+        a[y] = temp;
+    }
+
+    static void quickSort(int[] a, int left, int right) {
+        int pl = left;
+        int pr = right;
+        int pivot = a[(pl+pr)/2];
+
+        do{
+            while(a[pl] < pivot) pl++;
+            while(a[pr] > pivot) pr--;
+
+            if(pl <= pr) {
+                swap(a, pl++, pr--);
+            }
+        }while(pl <= pr);
+
+        if(left < pr) quickSort(a, left, pr);
+        if(pl < right) quickSort(a, pl, right);
+    }
+
+
+    public static void main(String[] args) {
+
+        int[] array = {1,5,2,6,3,7,4};
+        int[][] commands = {
+                        {2,5,3},
+                        {4,4,1},
+                        {1,7,3}
+                    };
+
+        int[] aa = Solution(array, commands);
+
+        viewArray(aa);
+    }
+
+
+
+    static int[] Solution(int[] array, int[][] commands) {
+        int[] answer = new int[commands.length];
+
+        for(int i=0; i < commands.length; i++) {
+
+            int start = commands[i][0];
+            int end = commands[i][1];
+            int k = commands[i][2];
+
+            buff = new int[end-start+1];
+
+            int cnt = 0;
+            for(int b=start-1; b < end; b++ ) {
+                //System.out.println(array[i]);
+                buff[cnt++] = array[b];
+            }
+
+            quickSort(buff, 0, buff.length-1);
+            viewArray(buff);
+
+            answer[i] = buff[k-1];
+            //System.out.println("result ; " + buff[k-1]);
+        }
+
+
+
+        return answer;
+    }
+
+    static void viewArray(int[] a) {
+        for(int i=0; i < a.length; i++) {
+            System.out.print(a[i] + " ");
+        }
+    }
+}
