@@ -14,17 +14,16 @@ public class dfs_05 {
     static Integer[] arr; // 동전종류
     static int M = 0; //거슬러줄 금액
     static int minCount = Integer.MAX_VALUE;
-    //static ArrayList<Integer> list = new ArrayList();
 
 
     public void dfs(int level, int sum) {
 
-        if (sum > M) {
+        if (sum > M || level > minCount) {
             return;
         }
 
         if (sum == M) {
-            //System.out.println("level = " + level + ", " + sum);
+            System.out.println("level = " + level + ", " + sum);
             minCount = Math.min(level, minCount);
             return;
         }else {
@@ -50,13 +49,9 @@ public class dfs_05 {
             arr[i] = sc.nextInt();
         }
 
-        System.out.println(Arrays.toString(arr));
         Arrays.sort(arr, Collections.reverseOrder());
-        System.out.println(Arrays.toString(arr));
-        System.out.println(minCount);
         M = sc.nextInt();
 
-        ArrayList<Integer> list = new ArrayList();
 
         t.dfs(0, 0);
 
