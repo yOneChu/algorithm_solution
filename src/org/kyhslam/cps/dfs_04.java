@@ -31,7 +31,7 @@ public class dfs_04 {
         Scanner sc = new Scanner(System.in);
         N = sc.nextInt();
         M = sc.nextInt();
-
+ 
         int[] a = new int[M];
 
         System.out.println("N = " + N);
