@@ -10,7 +10,7 @@ public class arr_02 {
     public static ArrayList answer = new ArrayList();
 
     public static void solution(int[] arr01, int[] arr02) {
-
+ 
         int p1 = 0;
         int p2 = 0;
 
