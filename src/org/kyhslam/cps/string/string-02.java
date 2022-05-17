@@ -3,7 +3,7 @@ package org.kyhslam.inflearnJava.string;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class cp02 {
+public class cp02 { 
 
     public static void solution(String str) {
 
